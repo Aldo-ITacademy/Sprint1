@@ -5,7 +5,12 @@ function autoinvocable que sumi dos nombres.
 */
 
 const prueba = ((num1, num2) => {
-    console.log(`Suma: ${num1 + num2}`);
+        
+    const imprimirPantalla =() =>{
+        console.log(`Suma: ${num1 + num2}`);
+    }
+    imprimirPantalla(num1, num2);
+    
 }) (5, 5);
 
 
