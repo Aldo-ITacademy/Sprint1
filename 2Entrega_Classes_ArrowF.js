@@ -4,10 +4,9 @@ Imprimir per pantalla el resultat d'una arrow
 function autoinvocable que sumi dos nombres.
 */
 
-const prueba = ((nombre1, nombre2) => {
-    console.log(nombre1+nombre2);
-    console.log(`Suma: ${nombre1 + nombre2}`);
-}) ('Name1', 'Name2');
+const prueba = ((num1, num2) => {
+    console.log(`Suma: ${num1 + num2}`);
+}) (5, 5);
 
 
 /*Nivell 2 - Exercici 1
@@ -53,7 +52,7 @@ const crea_objetos = (propiedad1, propiedad2) => {
         propiedad2
     };
 }
-
+ 
 
 let objeto10 = crea_objetos('heavy', 'new');
 console.log(objeto10);

@@ -5,13 +5,11 @@ let parametro_1 = 1;
 
  const generaPromesa = ()=> {
      return new Promise((resolve, reject)=>{
-         setTimeout(() => {
              if (parametro_1) {
               resolve('Success! Se ha ejecutado el ejercicio 1 del nivel 1');
              } else {
                  reject('Try again, change parametro_1 to 1');
             }
-        }, 1000);
      })
  };
 
@@ -75,14 +73,9 @@ let salaries = [{
 
 const getEmpleado = (id_Objeto) => {
     return new Promise((resolve, reject)=>{
-            if (id_Objeto >= 1 && id_Objeto <= 3) {
                 const elegido = employees.findIndex(empleado => empleado.id === id_Objeto);
                 console.log('Se ha encontrado al empleado')  
-                resolve(employees[elegido]); 
-            } else {
-                reject(`El índice empleado no es correcto. Solo puede tener valores del 1 al 3.
-               Cámbialo y vuelve a probar.`)
-            }    
+                resolve(employees[elegido]);     
     })
 }
 
@@ -95,15 +88,11 @@ Creu una altra arrow function getSalario que rebi com a paràmetre un objecte em
 const getSalario = (id_Objeto_Employee) => {
     return new Promise((resolve, reject)=>{
         const elegido2 = salaries.findIndex(salario => salario.id === id_Objeto_Employee.id);  
-        if (elegido2 >= 0 && elegido2 <= salaries.length-1) {
-            console.log(`Se ha obtenido el salario de ${id_Objeto_Employee.name}`);
-            resolve(salaries[elegido2]); 
-        } else {
-            reject(`El nombre de empleado no tiene salario asigando.
-            El índice no existe.`)
-        }    
+        console.log(`Se ha obtenido el salario de ${id_Objeto_Employee.name}`);
+        resolve(salaries[elegido2]);  
     })
 }
+
 
 /*- Exercici 3
 Invoqui la primera Promise getEmpleado i posteriorment getSalario, niant l'execució de les dues promises.*/
