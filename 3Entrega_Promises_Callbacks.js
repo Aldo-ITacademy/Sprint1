@@ -75,6 +75,7 @@ const getEmpleado = (id_Objeto) => {
     return new Promise((resolve, reject)=>{
                 const elegido = employees.findIndex(empleado => empleado.id === id_Objeto);
                 console.log('Se ha encontrado al empleado')  
+                console.log(employees[elegido]);
                 resolve(employees[elegido]);     
     })
 }
@@ -89,6 +90,7 @@ const getSalario = (id_Objeto_Employee) => {
     return new Promise((resolve, reject)=>{
         const elegido2 = salaries.findIndex(salario => salario.id === id_Objeto_Employee.id);  
         console.log(`Se ha obtenido el salario de ${id_Objeto_Employee.name}`);
+        console.log(salaries[elegido2]);
         resolve(salaries[elegido2]);  
     })
 }
@@ -96,12 +98,24 @@ const getSalario = (id_Objeto_Employee) => {
 
 /*- Exercici 3
 Invoqui la primera Promise getEmpleado i posteriorment getSalario, niant l'execució de les dues promises.*/
+let indiceLlamaEmpleado = 2;
 
+const anidar = async (indiceLlamaEmpleado) => {
+    try {
+        const empleadoElegido = await getEmpleado(indiceLlamaEmpleado);
+        const salarioEmpEle = await getSalario(empleadoElegido);  
+        console.log(salarioEmpEle.salary);  
+    } catch (error) {
+        console.log(error.message);    
+    }    
+}
+
+anidar(indiceLlamaEmpleado);
 
 /*Nivell 3 - Exercici 1
 Fixi un element catch a la invocació de la fase anterior que capturi qualsevol error i l'imprimeixi per consola.*/
 
-let indiceLlamaEmpleado = 2;
+
 
 getEmpleado(indiceLlamaEmpleado)
     .then((resolve1) => {
